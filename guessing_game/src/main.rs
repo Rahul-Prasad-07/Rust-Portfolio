@@ -4,8 +4,10 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
+
     //generate random number between 1 and 100
-    let secrate_number = rand::thread_rng().gen_range(1..=100);
+    let secrate_number = rand::thread_rng()
+    .gen_range(1..=100);
 
     println!("The secret number is {}", secrate_number);
 
@@ -17,11 +19,11 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        /**
-         * here we have convert guess input string to number, it's called shadowing
-         * to handle the error if the user input is not a number
-         * we need to use match expression to handle the error & possible variants
-         */
+        // here we have convert guess input string to number, it's called shadowing
+        // to handle the error if the user input is not a number
+        //we need to use match expression to handle the error & possible variants
+        //The trim method on a String instance will eliminate any whitespace at the beginning and end
+        //The parse method on strings parses a string into some kind of number
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
